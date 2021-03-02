@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Utils } from '../utils/utils.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -53,12 +55,12 @@ export class BaseApiService {
       newHeaders = newHeaders.append('Authorization', `Bearer ${this.accessToken}`);
     }
 
-    const returnObj = typeof(newHeaders) !== 'undefined' ? {headers: newHeaders} : {};
+    const returnObj: object = Utils.isDefined(newHeaders) ? {headers: newHeaders} : {};
 
-    if (typeof(otherProperties) !== 'undefined') {
+    if (Utils.isDefined(otherProperties)) {
       for (const attrname in otherProperties) {
         if (otherProperties.hasOwnProperty(attrname)) {
-          returnObj[attrname] = otherProperties[attrname];
+          (returnObj as any)[attrname] = (otherProperties as any)[attrname]; // TODO: find a better solution for this
         }
       }
     }
@@ -114,7 +116,7 @@ export class BaseApiService {
    * @param [headers]: extra headers to be added appart from authorization related ones
    * @returns post result
    */
-  protected post<T>(rel = '', entity: T = null, headers?: HttpHeaders): Observable<any> {
+  protected post<T>(rel = '', entity: T | null = null, headers?: HttpHeaders): Observable<any> {
     return this.http.post<T>(this.apiUrl(rel), entity, this.addHeaders(headers));
   }
 
@@ -125,7 +127,7 @@ export class BaseApiService {
    * @param [headers]: extra headers to be added appart from authorization related ones
    * @returns put result
    */
-  protected put<T>(rel = '', entity: T = null, headers?: HttpHeaders): Observable<any> {
+  protected put<T>(rel = '', entity: T | null = null, headers?: HttpHeaders): Observable<any> {
     return this.http.put<T>(this.apiUrl(rel), entity, this.addHeaders(headers));
   }
 
@@ -137,7 +139,7 @@ export class BaseApiService {
    * @param [headers]: extra headers to be added appart from authorization related ones
    * @returns put result
    */
-  protected putWithId<T>(rel = '', id: number, entity: T = null, headers?: HttpHeaders): Observable<any> {
+  protected putWithId<T>(rel = '', id: number, entity: T | null = null, headers?: HttpHeaders): Observable<any> {
     return this.http.put<T>(this.apiUrl(rel) + id.toString(), entity, this.addHeaders(headers));
   }
 
@@ -181,7 +183,7 @@ export class BaseApiService {
    * @param [headers]: extra headers to be added appart from authorization related ones
    * @returns patch result
    */
-  protected patch<T>(rel = '', entity: T = null, headers?: HttpHeaders): Observable<any> {
+  protected patch<T>(rel = '', entity: T | null = null, headers?: HttpHeaders): Observable<any> {
     return this.http.patch<T>(this.apiUrl(rel), entity, this.addHeaders(headers));
   }
 }
