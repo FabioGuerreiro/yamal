@@ -1,0 +1,18 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "editor.tabSize": 2,
+    "prettier.useTabs": true
+  },
+  "extensions": {
+    "recommendations": [
+      "salbert.comment-ts",
+      "johnpapa.angular-essentials",
+      "Angular.ng-template"
+    ]
+  }
+}
