@@ -1,1 +1,1 @@
-# Yet Anather Manga and Anime List
+# Yet Another Manga and Anime List
