@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BaseComponent } from './shared/components/base/base.component';
 
 @Component({
@@ -6,11 +6,16 @@ import { BaseComponent } from './shared/components/base/base.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent extends BaseComponent {
+export class AppComponent extends BaseComponent implements OnInit {
 
-  constructor() {
+  constructor(
+  ) {
     super();
   }
 
-  title = 'yamal';
+  title = 'YAMAL - Yet Another Anime & Manga List';
+
+  ngOnInit(): void {
+  }
+
 }

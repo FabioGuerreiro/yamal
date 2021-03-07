@@ -1,1 +1,1 @@
-# Yet Another Manga and Anime List
+# YAMAL - Yet Another Anime & Manga List
