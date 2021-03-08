@@ -1,0 +1,43 @@
+// ----------------
+// primary colours
+// ----------------
+//Primary colors are used to identify the brand
+/// @group primary-colors
+$blue: #19a2db;
+/// @group primary-colors
+$green: #009900;
+/// @group primary-colors
+$yellow: #FFB81C;
+/// @group primary-colors
+$orange: #FF6A00;
+/// @group primary-colors
+$red: #FF0000;
+/// @group primary-colors
+$black: #202020;
+/// @group primary-colors
+$white: #ffffff;
+
+
+// Brand colours
+$main: #FE7900;
+$second: #F1C328;
+$third: #B3DB9C;
+$fourth: #1B4F52;
+$fifth: #1F1D32;
+
+/// Collection for iterative functions
+$brandColors: (
+  "main": $main,
+  "second": $second,
+  "third": $third,
+  "fourth": $fourth,
+  "fifth": $fifth,
+  "blue": $blue,
+  "green": $green,
+  "yellow": $yellow,
+  "orange": $orange,
+  "red": $red,
+  "black": $black,
+  "white": $white,
+  "transparent": transparent
+);

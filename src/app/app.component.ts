@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { BaseComponent } from './shared/components/base/base.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent extends BaseComponent implements OnInit {
 

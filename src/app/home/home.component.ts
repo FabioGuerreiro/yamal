@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { BaseComponent } from '../shared/components/base/base.component';
+import { SliderItem } from '../shared/models/named-subscriptions/slider-item.model';
 import { AnimeService } from '../shared/services/anime/anime.service';
 import { Utils } from '../shared/services/utils/utils.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  encapsulation: ViewEncapsulation.None
 })
 export class HomeComponent extends BaseComponent implements OnInit {
-  topAiringAnime: any[] = [];
+  topAiringAnime: SliderItem[] = [];
 
   constructor(
     private animeSrv: AnimeService
@@ -28,7 +29,10 @@ export class HomeComponent extends BaseComponent implements OnInit {
     this.subscriptions.push({
       name: 'getTopAiringAnime',
       subscription: this.animeSrv.getTopAiringAnime().subscribe((result: any) => {
-        this.topAiringAnime = result.top;
+        result.top.map((anime: any) => {
+          const newItem = new SliderItem(anime.title, anime.image_url);
+          this.topAiringAnime.push(newItem);
+        });
       })
     });
   }
