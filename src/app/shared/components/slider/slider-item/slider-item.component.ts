@@ -1,4 +1,4 @@
-import { Component, HostBinding, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, HostBinding, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { ISliderItem } from 'src/app/shared/models/named-subscriptions/slider-item.model';
 import { BaseComponent } from '../../base/base.component';
 
@@ -11,6 +11,9 @@ export class SliderItemComponent extends BaseComponent implements OnInit {
   @Input() item: ISliderItem;
 
   @HostBinding('class') classes = 'yamal-slider-item';
+  @HostBinding('class.selected') public get isSelected(): boolean {
+    return this.item.selected === true;
+  }
 
   constructor() {
     super();

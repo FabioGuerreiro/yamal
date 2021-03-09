@@ -34,24 +34,34 @@ $colorValue in $brandColors {
 .yamal-slider{
   display: flex;
   box-sizing: border-box;
+  margin: 0 -.5em;
 
   .yamal-slider-item {
-    flex: 0 0 255px;
+    flex: 0 0 200px;
+    height: 285px;
+    margin: .5em;
 
     .yamal-slider-item-content {
       display: none;
     }
 
-    &:first-child {
-      flex: 0 0 700px;
-      display: flex;
-
-      .yamal-slider-item-image {
-        flex: 0 0 255px;
+    .yamal-slider-item-image {
+      flex: 0 0 200px;
+      img {
+        width: 200px;
+        height: 285px;
       }
+    }
+
+    &.selected {
+      flex: 0 0 600px;
+      display: flex;
 
       .yamal-slider-item-content {
         display: block;
+        width: 100%;
+        padding: .5em 2em;
+        background: rgba($main, .3);
       }
     }
   }

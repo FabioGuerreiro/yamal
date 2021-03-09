@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BaseComponent } from './components/base/base.component';
 import { HttpClientModule } from '@angular/common/http';
+
+import { BaseComponent } from './components/base/base.component';
 import { SliderComponent } from './components/slider/slider/slider.component';
 import { SliderItemComponent } from './components/slider/slider-item/slider-item.component';
 

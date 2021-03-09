@@ -2,6 +2,7 @@
 export interface ISliderItem {
   title: string;
   imageUrl: string;
+  selected?: boolean;
   type?: string;
   rank?: number;
   score?: number;
@@ -10,6 +11,7 @@ export interface ISliderItem {
 export class SliderItem implements ISliderItem {
   title: string;
   imageUrl: string;
+  selected?: boolean;
   type?: string;
   rank?: number;
   score?: number;

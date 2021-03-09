@@ -1,7 +1,3 @@
-<ng-container *ngIf="items; else nestedContent">
-  <app-slider-item [item]="item" *ngFor="let item of items"></app-slider-item>
+<ng-container *ngIf="items">
+  <app-slider-item [item]="item" (click)="onItemClick(item)" *ngFor="let item of items"></app-slider-item>
 </ng-container>
-
-<ng-template #nestedContent>
-  <ng-content></ng-content>
-</ng-template>
