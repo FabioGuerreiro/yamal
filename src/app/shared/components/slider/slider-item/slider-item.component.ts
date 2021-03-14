@@ -15,11 +15,17 @@ export class SliderItemComponent extends BaseComponent implements OnInit {
     return this.item.selected === true;
   }
 
+  @Output() navigate: EventEmitter<string> = new EventEmitter<string>();
+
   constructor() {
     super();
   }
 
   ngOnInit(): void {
+  }
+
+  onNavigate(direction: 'prev'|'next') {
+    this.navigate.emit(direction);
   }
 
 }

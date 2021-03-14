@@ -1,3 +1,7 @@
-<ng-container *ngIf="items">
-  <app-slider-item [item]="item" (click)="onItemClick(item)" *ngFor="let item of items"></app-slider-item>
-</ng-container>
+<div class="yamal-slider"  #container>
+  <ng-container *ngIf="items">
+    <ng-container *ngFor="let item of items">
+      <app-slider-item [item]="item" (navigate)="onNavigate($event, item)"></app-slider-item>
+    </ng-container>
+  </ng-container>
+</div>

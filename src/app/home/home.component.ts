@@ -10,7 +10,7 @@ import { Utils } from '../shared/services/utils/utils.service';
   encapsulation: ViewEncapsulation.None
 })
 export class HomeComponent extends BaseComponent implements OnInit {
-  topAiringAnime: SliderItem[] = [];
+  topAiringAnime: SliderItem[];
 
   constructor(
     private animeSrv: AnimeService
@@ -29,9 +29,12 @@ export class HomeComponent extends BaseComponent implements OnInit {
     this.subscriptions.push({
       name: 'getTopAiringAnime',
       subscription: this.animeSrv.getTopAiringAnime().subscribe((result: any) => {
-        result.top.map((anime: any) => {
-          const newItem = new SliderItem(anime.title, anime.image_url);
-          this.topAiringAnime.push(newItem);
+        this.topAiringAnime = [];
+        result.top.map((anime: any, i: number) => {
+          if (i < 10) {
+            const newItem = new SliderItem(anime.title, anime.image_url);
+            this.topAiringAnime.push(newItem);
+          }
         });
       })
     });
