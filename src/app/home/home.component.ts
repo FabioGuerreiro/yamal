@@ -33,6 +33,7 @@ export class HomeComponent extends BaseComponent implements OnInit {
         result.top.map((anime: any, i: number) => {
           if (i < 10) {
             const newItem = new SliderItem(anime.title, anime.image_url);
+            newItem.score = anime.score;
             this.topAiringAnime.push(newItem);
           }
         });

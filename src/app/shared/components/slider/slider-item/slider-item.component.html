@@ -5,8 +5,9 @@
   <img [src]="item.imageUrl" [alt]="item.title" />
 </div>
 <div class="yamal-slider-item-content">
+  <span class="yamal-score">{{item.score}}</span>
   <h3 class="yamal-slider-item-title">
-    {{item.title}}
+    <a href="#">{{item.title}}</a>
   </h3>
 </div>
 
